@@ -13,10 +13,10 @@ services:
         - "80:80"
         - "4000:4000"          
         - "9090:9090"        
-        command: sh -c "/wait && node startup_script.js && npm run dvws"
+        command: sh -c "/wait && node startup_script.js && npm start"
         environment:
             WAIT_HOSTS: dvws-mysql:3306, dvws-mongo:27017
-            WAIT_HOSTS_TIMEOUT: 60
+            WAIT_HOSTS_TIMEOUT: 200
             SQL_LOCAL_CONN_URL: dvws-mysql
             MONGO_LOCAL_CONN_URL: mongodb://dvws-mongo:27017/node-dvws
         depends_on:
